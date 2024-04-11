@@ -7,6 +7,9 @@ on:
 
 jobs:
   test:
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-windows-static-md
+    
     runs-on: windows-latest
 
     steps:
