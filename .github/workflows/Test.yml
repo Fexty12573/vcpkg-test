@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      
+      - name: Setup Vcpkg
+        uses: lukka/run-vcpkg@v10.2
+        with:
+          vcpkgDirectory: "${{ runner.workspace }}/b/vcpkg"
+          vcpkgGitCommitId: 13bde2ff13192e1b2fdd37bd9b475c7665ae6ae5
+          vcpkgJsonGlob: "**/vcpkg.json"
+          runVcpkgInstall: true
