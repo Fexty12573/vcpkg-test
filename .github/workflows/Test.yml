@@ -10,7 +10,7 @@ jobs:
     env:
       VCPKG_DEFAULT_TRIPLET: x64-windows-static-md
     
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     steps:
       - uses: actions/checkout@v3
