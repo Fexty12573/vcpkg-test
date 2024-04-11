@@ -10,7 +10,7 @@ jobs:
     env:
       VCPKG_DEFAULT_TRIPLET: x64-windows-static-md
     
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,4 @@ jobs:
       - name: Setup Vcpkg
         uses: lukka/run-vcpkg@v11
         with:
-          vcpkgDirectory: "${{ runner.workspace }}/b/vcpkg"
-          vcpkgGitCommitId: 13bde2ff13192e1b2fdd37bd9b475c7665ae6ae5
-          vcpkgJsonGlob: "**/vcpkg.json"
           runVcpkgInstall: true
