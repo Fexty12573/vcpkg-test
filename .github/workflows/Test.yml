@@ -10,14 +10,15 @@ jobs:
     env:
       VCPKG_DEFAULT_TRIPLET: x64-windows-static-md
     
-    runs-on: self-hosted
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
       
-      - name: Setup Vcpkg
-        uses: lukka/run-vcpkg@v11
-        with:
-          runVcpkgInstall: true
+      - name: Build Vcpkg
+        run: "./vcpkg/bootstrap-vcpkg.bat"
+
+      - name: Install Libraries
+        run: "./vcpkg/vcpkg.exe install --triplet=${{env.VCPKG_DEFAULT_TRIPLET}}"
