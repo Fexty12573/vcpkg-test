@@ -14,11 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
       
-      - name: Build Vcpkg
-        run: "./vcpkg/bootstrap-vcpkg.bat"
-
       - name: Install Libraries
-        run: "./vcpkg/vcpkg.exe install --triplet=${{env.VCPKG_DEFAULT_TRIPLET}}"
+        run: "vcpkg install --triplet=${{env.VCPKG_DEFAULT_TRIPLET}}"
